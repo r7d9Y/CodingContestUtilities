@@ -1,4 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class StringsUtilities {
 
@@ -9,7 +12,7 @@ public class StringsUtilities {
         LOOP:
         for (int bOffset = 0; bOffset < aLen; bOffset++) {
             for (int i = 0; i < aLen; i++) {
-                if (a[i] != b[(i+bOffset) % aLen]) continue LOOP;
+                if (a[i] != b[(i + bOffset) % aLen]) continue LOOP;
             }
             return true;
         }
@@ -61,7 +64,7 @@ public class StringsUtilities {
     }
 
     public static String removeFirstOccurrence(String s, char ch) {
-        if(!s.contains(String.valueOf(ch))) return s;
+        if (!s.contains(String.valueOf(ch))) return s;
         return s.substring(0, s.indexOf(ch)) + s.substring(s.indexOf(ch) + 1);
     }
 
@@ -69,5 +72,16 @@ public class StringsUtilities {
         for (char value : a) if (value == c) return true;
         return false;
     }
+
+    Date StringToDate(String s) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        Date date = format.parse(s);
+        return date;
+    }
+
+    String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+
+
 
 }

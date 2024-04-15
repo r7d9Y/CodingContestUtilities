@@ -1,3 +1,8 @@
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
+
+
 public class SortingUtilities {
 
     public void bubbleSort(int[] a) {
@@ -18,7 +23,7 @@ public class SortingUtilities {
     }
 
     public void insertionSort(int[] a) {
-        int n = a.length,key,c;
+        int n = a.length, key, c;
         for (int i = 1; i < n; i++) {
             key = a[i];
             c = i - 1;
@@ -31,7 +36,7 @@ public class SortingUtilities {
     }
 
     public void selectionSort(int[] a) {
-        int n = a.length,minIndex,temp;
+        int n = a.length, minIndex, temp;
         for (int i = 0; i < n - 1; i++) {
             minIndex = i;
             for (int j = i + 1; j < n; j++) {
